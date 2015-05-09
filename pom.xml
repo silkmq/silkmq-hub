@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.silkmq</groupId>
+        <artifactId>silkmq-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>org.silkmq.hub</groupId>
+    <artifactId>silkmq-hub</artifactId>
+    <packaging>pom</packaging>
+    <name>SilkMQ :: Hub</name>
+
+    <properties>
+        <!-- Define or override properties here  -->
+    </properties>
+
+    <modules>
+      <module>silkmq-hub-config</module>
+    </modules>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>maven-bundle-plugin</artifactId>
+                    <version>${maven-bundle.version}</version>
+                    <extensions>true</extensions>
+                    <dependencies>
+                        <dependency>
+                            <groupId>biz.aQute.bnd</groupId>
+                            <artifactId>bndlib</artifactId>
+                            <version>${version.bndlib}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
+
