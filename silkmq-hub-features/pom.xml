@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.silkmq.hub</groupId>
+    <artifactId>silkmq-hub</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>silkmq-hub-features</artifactId>
+  <name>SilkMQ :: Hub :: Features</name>
+
+  <properties>
+    <features.file>features.xml</features.file>
+  </properties>
+
+  <dependencies>
+    <!-- test to validate features.xml -->
+    <!-- dependency>
+      <groupId>org.silkmq</groupId>
+      <artifactId>silkmq-features-test</artifactId>
+    </dependency -->
+  </dependencies>
+
+  <build>
+    <resources>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>filter</id>
+            <goals>
+              <goal>resources</goal>
+            </goals>
+            <phase>generate-resources</phase>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-artifacts</id>
+            <goals>
+              <goal>attach-artifact</goal>
+            </goals>
+            <phase>package</phase>
+            <configuration>
+              <artifacts>
+                <artifact>
+                  <file>${project.build.directory}/classes/${features.file}</file>
+                  <type>xml</type>
+                  <classifier>features</classifier>
+                </artifact>
+              </artifacts>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <systemPropertyVariables>
+            <karaf.distro.groupId>org.apache.karaf</karaf.distro.groupId>
+            <karaf.distro.artifactId>apache-karaf-minimal</karaf.distro.artifactId>
+            <karaf.distro.version>${karaf.version}</karaf.distro.version>
+          </systemPropertyVariables>
+          <dependenciesToScan>
+           <dependency>org.silkmq:silkmq-features-test</dependency>
+          </dependenciesToScan>
+        </configuration>
+      </plugin -->
+    </plugins>
+  </build>
+</project>

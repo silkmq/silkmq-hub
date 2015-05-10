@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<features name="silkmq-hub-${project.version}" 
+	  xmlns="http://karaf.apache.org/xmlns/features/v1.2.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0">
+
+  <feature name='silkmq-hub-config' version='${project.version}' description="SilkMQ :: Hub :: Config">
+    <feature>war</feature>
+    <bundle>mvn:org.silkmq.hub/silkmq-hub-config/${project.version}</bundle>
+  </feature>
+
+</features>
+
